@@ -8,6 +8,6 @@
         chdir: /var/lib/jenkins/workspace/devops
 
     - name: Start new containers
-      shell: docker-compose up -d --build
+      shell: DOCKER_BUILDKIT=0 docker-compose up -d --build
       args:
         chdir: /var/lib/jenkins/workspace/devops
