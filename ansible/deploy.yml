@@ -1,0 +1,13 @@
+- hosts: localhost
+  become: true
+
+  tasks:
+    - name: Stop old containers
+      shell: docker-compose down
+      args:
+        chdir: /var/lib/jenkins/workspace/php-devops
+
+    - name: Start new containers
+      shell: docker-compose up -d --build
+      args:
+        chdir: /var/lib/jenkins/workspace/php-devops
